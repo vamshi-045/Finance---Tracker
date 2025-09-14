@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Tracker (with localStorage)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="main-card">
+      
+      
+      <div class="header-section">
+        <h1 class="header-title">
+          Finance Tracker
+        </h1>
+        <p class="header-subtitle">
+          Backend connection: MongoDB 
+        </p>
+      </div>
+      
+      
+      <div class="monthly-balance-section">
+        <h2 class="balance-label">Monthly Balance</h2>
+        <p id="monthly-balance" class="balance-amount">
+          Rs-0.00
+        </p>
+        <div class="month-selector">
+          <label for="month-select">Select Month:</label>
+          <select id="month-select">
+            <option value="">All Transactions</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="add-transaction-section">
+        <h3 class="section-title">Add New Transaction</h3>
+        <div class="form-group">
+          <input
+            id="transaction-description"
+            type="text"
+            placeholder="Enter a description..."
+            class="form-input"
+          />
+          <input
+            id="transaction-amount"
+            type="number"
+            placeholder="Enter amount..."
+            class="form-input"
+          />
+          <input
+            id="transaction-category"
+            type="text"
+            placeholder="Enter category (e.g., Food, Salary)..."
+            class="form-input"
+          />
+          <input
+            id="transaction-date"
+            type="date"
+            class="form-input"
+          />
+          <div class="button-group">
+            <button
+              onclick="handleAddTransaction('debit')"
+              class="transaction-button debit"
+            >
+              Debit
+            </button>
+            <button
+              onclick="handleAddTransaction('credit')"
+              class="transaction-button credit"
+            >
+              Credit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message display for user feedback -->
+    <!--  <div id="message-box" class="message-box" style="display: none;"></div> -->
+
+      <!-- Monthly History section -->
+      <div class="history-section">
+        <h3 class="section-title">Monthly History</h3>
+        <div class="history-list-container">
+          <ul id="history-list" class="history-list">
+            <!-- Transactions will be inserted here by JavaScript -->
+          </ul>
+          <p id="no-transactions-message" class="no-transactions" style="display: none;">
+            No transactions for this month.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
